@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
 
@@ -56,30 +57,33 @@ class Login extends Component {
       return <Redirect to="/search" />;
     }
     return (
-      <div data-testid="page-login">
-        <form>
-          <label htmlFor="name-user">
-            Nome:
-            <input
-              data-testid="login-name-input"
-              id="name-user"
-              name="name-user"
-              placeholder="Insira seu nome"
-              value={ nameUser }
-              onChange={ this.onInputChange }
-            />
-          </label>
-          <button
-            data-testid="login-submit-button"
-            id="btn-login"
-            type="button"
-            disabled={ isDisabled }
-            onClick={ () => this.handleUser({ name: nameUser }) }
-          >
-            Entrar
-          </button>
-        </form>
-      </div>
+      <>
+        <Header />
+        <div data-testid="page-login">
+          <form>
+            <label htmlFor="name-user">
+              Nome:
+              <input
+                data-testid="login-name-input"
+                id="name-user"
+                name="name-user"
+                placeholder="Insira seu nome"
+                value={ nameUser }
+                onChange={ this.onInputChange }
+              />
+            </label>
+            <button
+              data-testid="login-submit-button"
+              id="btn-login"
+              type="button"
+              disabled={ isDisabled }
+              onClick={ () => this.handleUser({ name: nameUser }) }
+            >
+              Entrar
+            </button>
+          </form>
+        </div>
+      </>
     );
   }
 
