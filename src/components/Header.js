@@ -13,11 +13,12 @@ class Header extends Component {
     };
   }
 
-  retrieveUser = async () => {
-    const name = await getUser();
-    this.setState({
-      nameUser: name.name,
-      isLoadind: false,
+  retrieveUser = () => {
+    getUser().then((nameObj) => {
+      this.setState({
+        nameUser: nameObj.name,
+        isLoadind: false,
+      });
     });
   }
 
