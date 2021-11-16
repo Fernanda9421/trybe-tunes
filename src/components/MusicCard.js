@@ -8,28 +8,41 @@ class MusicCard extends Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
+    this.getFavorited = this.getFavorited.bind(this);
 
     this.state = {
-      isChecked: false,
       isLoading: false,
+      isFavorited: false,
     };
+  }
+
+  componentDidMount() {
+    this.getFavorited();
   }
 
   handleChange() {
     const { song } = this.props;
     this.setState({
-      isChecked: true,
       isLoading: true,
     }, () => {
       addSong(song).then(() => {
-        this.setState({ isLoading: false });
+        this.setState({ isLoading: false, isFavorited: true });
       });
     });
   }
 
+  getFavorited() {
+    const { isChecked } = this.props;
+    if (isChecked === true) {
+      this.setState({
+        isFavorited: true,
+      });
+    }
+  }
+
   render() {
     const { trackName, previewUrl, trackId } = this.props;
-    const { isChecked, isLoading } = this.state;
+    const { isLoading, isFavorited } = this.state;
 
     return (
       isLoading
@@ -47,7 +60,7 @@ class MusicCard extends Component {
               <input
                 name="favorite"
                 type="checkbox"
-                checked={ isChecked }
+                checked={ isFavorited }
                 onChange={ this.handleChange }
                 data-testid={ `checkbox-music-${trackId}` }
               />
@@ -61,6 +74,7 @@ MusicCard.propTypes = {
   trackName: PropTypes.string.isRequired,
   previewUrl: PropTypes.string.isRequired,
   trackId: PropTypes.number.isRequired,
+  isChecked: PropTypes.bool.isRequired,
   song: PropTypes.shape({
     trackId: PropTypes.number,
   }).isRequired,
