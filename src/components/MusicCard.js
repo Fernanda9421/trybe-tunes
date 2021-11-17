@@ -25,6 +25,7 @@ class MusicCard extends Component {
     const { isFavorited } = this.state;
 
     if (isFavorited === false) {
+      song.isChecked = true;
       this.setState({
         isLoading: true,
       }, () => {
@@ -33,9 +34,14 @@ class MusicCard extends Component {
         });
       });
     } else {
+      const { onChange } = this.props;
+      song.isChecked = false;
       this.setState({ isLoading: true }, () => {
         removeSong(song).then(() => {
           this.setState({ isLoading: false, isFavorited: false });
+          if (onChange !== undefined) {
+            onChange();
+          }
         });
       });
     }
@@ -69,6 +75,7 @@ class MusicCard extends Component {
               Favorita
               <input
                 name="favorite"
+                id="favorite"
                 type="checkbox"
                 checked={ isFavorited }
                 onChange={ this.handleChange }
@@ -85,8 +92,10 @@ MusicCard.propTypes = {
   previewUrl: PropTypes.string.isRequired,
   trackId: PropTypes.number.isRequired,
   isChecked: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
   song: PropTypes.shape({
     trackId: PropTypes.number,
+    isChecked: PropTypes.bool,
   }).isRequired,
 };
 
