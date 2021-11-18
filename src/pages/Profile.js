@@ -45,12 +45,12 @@ class Profile extends Component {
             ? <Loading />
             : (
               <main>
-                <img data-testid="profile-image" src={ image } alt={ name } />
-                <Link
-                  to="/profile/edit"
-                >
-                  Editar perfil
-                </Link>
+                <section>
+                  <img data-testid="profile-image" src={ image } alt={ name } />
+                </section>
+                <nav>
+                  <Link to="/profile/edit">Editar perfil</Link>
+                </nav>
                 <section>
                   <span>Nome:</span>
                   <p>{ name }</p>
