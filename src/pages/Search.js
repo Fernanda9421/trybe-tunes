@@ -88,8 +88,8 @@ class Search extends Component {
               </button>
             </form>)}
         <div>
-          <div>{ resposeApi }</div>
-          <div>
+          <div className="responseApi">{ resposeApi }</div>
+          <div className="collections">
             {
               artist.map(({
                 collectionId,
@@ -97,11 +97,12 @@ class Search extends Component {
                 collectionName,
                 artworkUrl100,
               }) => (
-                <div key={ collectionId }>
+                <div className="collection" key={ collectionId }>
                   <img src={ artworkUrl100 } alt={ artistName } />
-                  <p>{ collectionName }</p>
+                  <p className="collectionName">{ collectionName }</p>
                   <p>{ artistName }</p>
                   <Link
+                    className="link-details"
                     data-testid={ `link-to-album-${collectionId}` }
                     to={ `/album/${collectionId}` }
                   >
