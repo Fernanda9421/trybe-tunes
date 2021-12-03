@@ -2,6 +2,7 @@
   display: none;
 }
 
+/* Referência: https://desenvolvimentoparaweb.com/css/animacao-loading-css/ */
 .div-loading {
   align-items: center;
   display: flex;
