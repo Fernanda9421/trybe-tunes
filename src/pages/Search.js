@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
@@ -84,6 +85,7 @@ class Search extends Component {
                 disabled={ isDisabled }
                 onClick={ () => this.handleArtist(nameArtist) }
               >
+                <FaSearch className="icon-search" />
                 Pesquisar
               </button>
             </form>)}
