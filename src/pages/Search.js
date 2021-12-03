@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import '../css/search.css';
 
 class Search extends Component {
   constructor() {
@@ -67,6 +68,7 @@ class Search extends Component {
               <label htmlFor="artist-input">
                 <input
                   data-testid="search-artist-input"
+                  className="artist-input"
                   id="artist-input"
                   name="artist-input"
                   placeholder="Nome do Artista"
@@ -76,6 +78,7 @@ class Search extends Component {
               </label>
               <button
                 data-testid="search-artist-button"
+                className="artist-button"
                 id="artist-button"
                 type="button"
                 disabled={ isDisabled }
