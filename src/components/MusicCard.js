@@ -64,14 +64,16 @@ class MusicCard extends Component {
       isLoading
         ? <Loading />
         : (
-          <div>
-            <span>{ trackName }</span>
+          <div className="music-cards">
+            <div className="trackName">
+              <span><strong>{ trackName }</strong></span>
+            </div>
             <audio data-testid="audio-component" src={ previewUrl } controls>
               <track kind="captions" />
               O seu navegador não suporta o elemento
               <code>audio</code>
             </audio>
-            <label htmlFor="favorite">
+            <label className="favorite" htmlFor="favorite">
               Favorita
               <input
                 name="favorite"

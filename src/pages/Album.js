@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import MusicCard from '../components/MusicCard';
 import getMusics from '../services/musicsAPI';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
+import '../css/album.css';
 
 class Album extends Component {
   constructor() {
@@ -55,25 +56,29 @@ class Album extends Component {
     return (
       <div data-testid="page-album">
         <Header />
-        <main>
-          <img src={ collectionImage } alt={ collectionName } />
-          <h1 data-testid="album-name">{ collectionName }</h1>
-          <p data-testid="artist-name">{ artistName }</p>
+        <main className="album-details">
+          <section className="artist-details">
+            <img src={ collectionImage } alt={ collectionName } />
+            <h1 data-testid="album-name">{ collectionName }</h1>
+            <p data-testid="artist-name">{ artistName }</p>
+          </section>
+          <section className="tracks">
+            {
+              tracks
+                .filter((track) => track.previewUrl !== undefined)
+                .map((track) => (
+                  <MusicCard
+                    key={ track.trackId }
+                    trackName={ track.trackName }
+                    previewUrl={ track.previewUrl }
+                    trackId={ track.trackId }
+                    song={ track }
+                    isChecked={ track.isChecked }
+                  />
+                ))
+            }
+          </section>
         </main>
-        {
-          tracks
-            .filter((track) => track.previewUrl !== undefined)
-            .map((track) => (
-              <MusicCard
-                key={ track.trackId }
-                trackName={ track.trackName }
-                previewUrl={ track.previewUrl }
-                trackId={ track.trackId }
-                song={ track }
-                isChecked={ track.isChecked }
-              />
-            ))
-        }
       </div>
     );
   }
