@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import '../css/header.css';
@@ -42,27 +42,30 @@ class Header extends Component {
                   </p>
                 </div>
                 <nav className="nav-links">
-                  <Link
+                  <NavLink
+                    activeClassName="selected"
                     className="link"
                     data-testid="link-to-search"
                     to="/search"
                   >
                     Search
-                  </Link>
-                  <Link
+                  </NavLink>
+                  <NavLink
+                    activeClassName="selected"
                     className="link"
                     data-testid="link-to-favorites"
                     to="/favorites"
                   >
                     Favorites
-                  </Link>
-                  <Link
+                  </NavLink>
+                  <NavLink
+                    activeClassName="selected"
                     className="link"
                     data-testid="link-to-profile"
                     to="/profile"
                   >
                     Profile
-                  </Link>
+                  </NavLink>
                 </nav>
               </section>
             )
