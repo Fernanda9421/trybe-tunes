@@ -3,6 +3,7 @@ import { Redirect } from 'react-router';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser, updateUser } from '../services/userAPI';
+import '../css/profileEdit.css';
 
 class ProfileEdit extends Component {
   constructor() {
@@ -90,11 +91,12 @@ class ProfileEdit extends Component {
           isLoading
             ? <Loading />
             : (
-              <main>
-                <form>
-                  <label htmlFor="image">
+              <main className="profileEdit__main">
+                <form className="profileEdit__form">
+                  <label className="profileEdit__infos" htmlFor="image">
                     Imagem:
                     <input
+                      className="profileEdit__inputs"
                       data-testid="edit-input-image"
                       name="image"
                       id="image"
@@ -104,9 +106,10 @@ class ProfileEdit extends Component {
                       value={ image }
                     />
                   </label>
-                  <label htmlFor="name">
+                  <label className="profileEdit__infos" htmlFor="name">
                     Nome:
                     <input
+                      className="profileEdit__inputs"
                       data-testid="edit-input-name"
                       name="name"
                       id="name"
@@ -116,9 +119,10 @@ class ProfileEdit extends Component {
                       value={ name }
                     />
                   </label>
-                  <label htmlFor="email">
+                  <label className="profileEdit__infos" htmlFor="email">
                     E-mail:
                     <input
+                      className="profileEdit__inputs"
                       data-testid="edit-input-email"
                       name="email"
                       id="email"
@@ -128,9 +132,10 @@ class ProfileEdit extends Component {
                       value={ email }
                     />
                   </label>
-                  <label htmlFor="description">
+                  <label className="profileEdit__infos" htmlFor="description">
                     Descrição:
                     <textarea
+                      className="profileEdit__inputs"
                       data-testid="edit-input-description"
                       name="description"
                       id="description"
@@ -139,6 +144,7 @@ class ProfileEdit extends Component {
                     />
                   </label>
                   <button
+                    className="profileEdit__button"
                     data-testid="edit-button-save"
                     id="button-profile"
                     type="button"
