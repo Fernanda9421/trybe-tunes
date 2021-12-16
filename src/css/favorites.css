@@ -1,7 +1,7 @@
 .favorites__container {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .favorites__title {
@@ -14,13 +14,13 @@
 }
 
 .favorites__image {
-  width: 80px;
-  height: 80px;
   border-radius: 50%;
+  height: 80px;
   margin-right: 40px;
+  width: 80px;
 }
 
 .favorites__card {
-  display: flex;
   align-items: center;
+  display: flex;
 }
