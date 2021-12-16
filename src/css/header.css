@@ -51,3 +51,7 @@
   color: #036b52;
   font-size: 18px;
 }
+
+.selected {
+  color: #023031;
+}
