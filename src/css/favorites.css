@@ -1,0 +1,26 @@
+.favorites__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.favorites__title {
+  color: #023031;
+  display: flex;
+  font-family: Montserrat , sans-serif;
+  font-size: 30px;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.favorites__image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 40px;
+}
+
+.favorites__card {
+  display: flex;
+  align-items: center;
+}
