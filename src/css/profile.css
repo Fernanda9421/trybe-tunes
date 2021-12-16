@@ -1,0 +1,39 @@
+.profile__main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__header {
+  align-items: center;
+  display: flex;
+  margin-bottom: 50px;
+  margin-top: 70px;
+}
+
+.profile__user {
+  height: 100px;
+  margin-right: 50px;
+  width: 100px;
+}
+
+.profile__link {
+  border: 1px solid gray;
+  border-radius: 10px;
+  color: gray;
+  font-weight: 600;
+  padding: 8px;
+  text-decoration: none;
+}
+
+.profile__link:hover {
+  background-color: gray;
+  color: white;
+}
+
+.profile__infosUser {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+}
