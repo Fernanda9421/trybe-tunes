@@ -52,7 +52,7 @@ class Profile extends Component {
                     {
                       image ? (
                         <img
-                          className="profile__image"
+                          className="profile__user"
                           data-testid="profile-image"
                           src={ image }
                           alt={ name }
