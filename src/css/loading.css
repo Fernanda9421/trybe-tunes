@@ -7,17 +7,17 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  min-height: 80vh;
+  min-height: 10vh;
   transform: scale(1);
 }
 
 .c-loader {
   animation: is-rotating 1s infinite;
-  border: 6px solid #e5e5e5;
+  border: 3px solid #e5e5e5;
   border-radius: 50%;
   border-top-color: #036b52;
-  height: 50px;
-  width: 50px;
+  height: 10px;
+  width: 10px;
 }
 
 @keyframes is-rotating {
