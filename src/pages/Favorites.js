@@ -3,6 +3,8 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import MusicCard from '../components/MusicCard';
+import music from '../imgs/headphone.png';
+import '../css/favorites.css';
 
 class Favorites extends Component {
   constructor() {
@@ -54,21 +56,30 @@ class Favorites extends Component {
           isLoading
             ? <Loading />
             : (
-              <div>
-                <p>Músicas Favoritas:</p>
-                {
-                  tracks.map((track) => (
-                    <MusicCard
-                      key={ track.trackId }
-                      trackName={ track.trackName }
-                      previewUrl={ track.previewUrl }
-                      trackId={ track.trackId }
-                      song={ track }
-                      isChecked={ track.isChecked }
-                      onChange={ this.newSongs }
-                    />
-                  ))
-                }
+              <div className="favorites__container">
+                <p className="favorites__title">Músicas Favoritas</p>
+                <div className="favorites__infos">
+                  {
+                    tracks.map((track) => (
+                      <div className="favorites__card" key={ track.trackId }>
+                        <img
+                          className="favorites__image"
+                          src={ music }
+                          alt="headphones"
+                        />
+                        <MusicCard
+                          key={ track.trackId }
+                          trackName={ track.trackName }
+                          previewUrl={ track.previewUrl }
+                          trackId={ track.trackId }
+                          song={ track }
+                          isChecked={ track.isChecked }
+                          onChange={ this.newSongs }
+                        />
+                      </div>
+                    ))
+                  }
+                </div>
               </div>
             )
         }
